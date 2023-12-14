@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.custom-card {
+  border: 1px solid rgb(96, 93, 93); /* Add a border to the card */
+  border-radius: 10px; /* Add rounded corners */
+  overflow: hidden; /* Hide overflowing content */
+
+  
+}
