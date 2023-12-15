@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import wavinghand from './waving hand.png'; // Import the waving hand image
 import Notes from './Notes';
 
 const Home = (props) => {
@@ -8,7 +7,7 @@ const Home = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/auth/getuser", {
+        const response = await fetch("https://notecraft-backend.onrender.com/api/auth/getuser", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -33,12 +32,11 @@ const Home = (props) => {
 
   return (
     <div>
-      <div style={{ top: "60px", left: "5px", position: "absolute" }} className='container mt-2'>
-        <h5 style={{ display: 'flex', alignItems: 'center' }}>
-          Hello {name}
-          <img src={wavinghand} alt="Waving Hand" style={{ width: '30px', height: '30px', marginLeft: '5px' }} />
-
-        </h5>
+      <div style={{ background: "#f8f9fa", padding: "20px", boxShadow: "0 4px 8px rgba(0,0,0,0.1)", borderRadius: "8px", margin:"0px auto 20px", maxWidth: "600px" }}>
+        <h1 style={{ fontSize: "2rem", marginBottom: "10px", color: "black", textAlign: "center" }}>
+          Welcome, {name}!
+        </h1>
+        
       </div>
       <Notes showAlert={props.showAlert} />
     </div>
