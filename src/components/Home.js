@@ -28,16 +28,16 @@ const Home = (props) => {
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures useEffect runs only once on component mount
+  }, []);
 
   return (
     <div>
-      <div style={{ background: "#f8f9fa", padding: "20px", boxShadow: "0 4px 8px rgba(0,0,0,0.1)", borderRadius: "8px", margin:"0px auto 20px", maxWidth: "600px" }}>
-        <h1 style={{ fontSize: "2rem", marginBottom: "10px", color: "black", textAlign: "center" }}>
+      <div style={{ background: "#f8f9fa", padding: "10px", boxShadow: "0 4px 8px rgba(0,0,0,0.1)", borderRadius: "8px", margin: "0 auto 20px", maxWidth: "300px" }}>
+        <h6 style={{ fontSize: "1.5rem", marginBottom: "5px", color: "black", textAlign: "center" }}>
           Welcome, {name}!
-        </h1>
-        
+        </h6>
       </div>
+
       <Notes showAlert={props.showAlert} />
     </div>
   );
