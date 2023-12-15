@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import logo from './notecraft.png'
 import { Link, useLocation,useHistory } from 'react-router-dom';
 
 
@@ -24,7 +25,8 @@ const Navbar = (props) => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">NoteCraft</Link>
+                <Link className="navbar-brand" to="/"> <img src={logo} alt="Logo" width="30" height="30" className="d-inline-block align-top" />
+            &nbsp; NoteCraft</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
