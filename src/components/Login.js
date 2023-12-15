@@ -76,7 +76,7 @@ const Login = (props) => {
               />
             </div>
 
-            <button type="submit" className="btn btn-primary mb-3">
+            <button type="submit" className="btn btn-dark mb-3">
               Submit
             </button>
           </form>
