@@ -35,7 +35,7 @@ const AddNote = (props) => {
             onChange={onchange}
             value={note.title}
             minLength={5}
-            placeholder='Enter your title'
+            placeholder='Enter your title min 5 letters'
             required
           />
         </div>
@@ -51,7 +51,7 @@ const AddNote = (props) => {
             value={note.description}
             minLength={5}
             required
-            placeholder='Enter your description....'
+            placeholder='Enter your description..min 5 letters'
             rows={4} // Set the number of visible rows
           />
         </div>
