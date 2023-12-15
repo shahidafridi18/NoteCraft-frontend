@@ -130,14 +130,14 @@ const Notespage = (props) => {
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleSort('asc')}
+                            <input class="form-check-input me-1" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleSort('asc')}
                                 checked={sortOrder === 'asc'} />
                                 <label class="form-check-label" for="flexCheckDefault">
                                     old to new
                                 </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" onChange={() => handleSort('desc')}
+                            <input class="form-check-input me-1" type="checkbox" value="" id="flexCheckChecked" onChange={() => handleSort('desc')}
                                 checked={sortOrder === 'desc'} />
                                 <label class="form-check-label" for="flexCheckChecked">
                                    new to old
@@ -166,7 +166,7 @@ const Notespage = (props) => {
 
 
             </div>
-            <div className='d-flex justify-content-center'>
+            <div className='d-flex justify-content-center mb-3'>
 
                 <Link
                     to='/'
