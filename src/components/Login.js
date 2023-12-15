@@ -8,7 +8,7 @@ const Login = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
 
-    const response = await fetch('http://localhost:5000/api/auth/login', {
+    const response = await fetch('https://notecraft-backend.onrender.com/api/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
