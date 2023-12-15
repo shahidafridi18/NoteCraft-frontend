@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Link, useLocation,useHistory } from 'react-router-dom';
 
 
-const Navbar = () => {
+const Navbar = (props) => {
 
     let location = useLocation();
     useEffect(() => {
@@ -16,7 +16,8 @@ const Navbar = () => {
 
     const handleclick=()=>{
         localStorage.removeItem('token');
-        history.push("/login")
+        history.push("/login");
+        props.showAlert("Successfully logged out!","danger");
     }
 
 
