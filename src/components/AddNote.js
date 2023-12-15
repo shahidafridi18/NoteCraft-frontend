@@ -19,7 +19,7 @@ const AddNote = (props) => {
   };
 
   return (
-    <div className="container my-3">
+    <div className="container ">
       <h3>Add a note</h3>
       <form>
         <div className="mb-3">
@@ -71,7 +71,7 @@ const AddNote = (props) => {
         <button
           disabled={note.title.length < 3 || note.description.length < 5}
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-dark"
           onClick={handleclick}
         >
           Add Note
