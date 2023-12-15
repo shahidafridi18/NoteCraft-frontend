@@ -131,7 +131,7 @@ const Notespage = (props) => {
 
 
             </div>
-            <div className='d-flex justify-content-center'>
+            <div className='d-flex justify-content-center mb-3'>
 
                 <Link
                     to='/'
