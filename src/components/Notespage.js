@@ -4,6 +4,7 @@ import noteContext from '../context/notes/noteContext.js';
 import { useHistory, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
+import '../App.css'
 
 const Notespage = (props) => {
 
@@ -13,7 +14,11 @@ const Notespage = (props) => {
     const ref = useRef(null);
     const refClose = useRef(null);
 
-    const [note, setNote] = useState({ id: "", etitle: "", edescription: "", etag: "" })
+    const [note, setNote] = useState({ id: "", etitle: "", edescription: "", etag: "" });
+    const [sortOrder, setSortOrder] = useState('asc'); 
+
+    
+
 
 
     useEffect(() => {
@@ -33,9 +38,7 @@ const Notespage = (props) => {
     const updateNote = (currentnote) => {
         ref.current.click()
         setNote({ id: currentnote._id, etitle: currentnote.title, edescription: currentnote.description, etag: currentnote.tag })
-
-
-
+    
     }
 
 
@@ -43,15 +46,22 @@ const Notespage = (props) => {
         await editNote(note.id, note.etitle, note.edescription, note.etag)
         refClose.current.click()
         props.showAlert("Notes updated Succesfully!", "success");
-
-
-
     }
 
     const onchange = (e) => {
         setNote({ ...note, [e.target.name]: e.target.value })
 
     }
+
+    const handleSort = (order) => {
+        setSortOrder(order);
+    };
+    const sortedNotes = [...notes].sort((a, b) => {
+         // eslint-disable-next-line
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
+    });
 
 
     return (
@@ -101,17 +111,42 @@ const Notespage = (props) => {
                         </div>
                         <div class="modal-footer">
                             <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button  type="button" class="btn btn-primary" onClick={handleclick}>Update Note</button>
+                            <button type="button" class="btn btn-primary" onClick={handleclick}>Update Note</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <h2 className='text-center'> <>
+            <h2 className='text-center mb-4'> <>
                 Your Notes {' '}
                 <FontAwesomeIcon icon={faBook} style={{ marginLeft: '5px' }} />
             </>
             </h2>
+
+            <div class="d-flex justify-content-end mt-2">
+                <div class="dropdown me-1">
+                    <button type="button" class="btn btn-dark dropdown-toggle" id="dropdownMenuOffset" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
+                        <i class="fa-solid fa-filter"></i> filter
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleSort('asc')}
+                                checked={sortOrder === 'asc'} />
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    old to new
+                                </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" onChange={() => handleSort('desc')}
+                                checked={sortOrder === 'desc'} />
+                                <label class="form-check-label" for="flexCheckChecked">
+                                   new to old
+                                </label>
+                        </div>
+
+                    </ul>
+                </div>
+            </div>
 
             <div className=' row my-3'>
 
@@ -125,13 +160,13 @@ const Notespage = (props) => {
                 </div>
 
 
-                {notes.map((note) => {
+                {sortedNotes.map((note) => {
                     return <Notesitem key={note._id} updateNote={updateNote} note={note} showAlert={props.showAlert} />
                 })}
 
 
             </div>
-            <div className='d-flex justify-content-center mb-3'>
+            <div className='d-flex justify-content-center'>
 
                 <Link
                     to='/'
