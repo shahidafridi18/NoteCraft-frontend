@@ -15,9 +15,9 @@ const Notespage = (props) => {
     const refClose = useRef(null);
 
     const [note, setNote] = useState({ id: "", etitle: "", edescription: "", etag: "" });
-    const [sortOrder, setSortOrder] = useState('asc'); 
+    const [sortOrder, setSortOrder] = useState('asc');
 
-    
+
 
 
 
@@ -38,7 +38,7 @@ const Notespage = (props) => {
     const updateNote = (currentnote) => {
         ref.current.click()
         setNote({ id: currentnote._id, etitle: currentnote.title, edescription: currentnote.description, etag: currentnote.tag })
-    
+
     }
 
 
@@ -57,7 +57,7 @@ const Notespage = (props) => {
         setSortOrder(order);
     };
     const sortedNotes = [...notes].sort((a, b) => {
-         // eslint-disable-next-line
+        // eslint-disable-next-line
         const dateA = new Date(a.date);
         const dateB = new Date(b.date);
         return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
@@ -128,22 +128,26 @@ const Notespage = (props) => {
                     <button type="button" class="btn btn-dark dropdown-toggle" id="dropdownMenuOffset" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
                         <i class="fa-solid fa-filter"></i> filter
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                        <div class="form-check">
-                            <input class="form-check-input me-1" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleSort('asc')}
-                                checked={sortOrder === 'asc'} />
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    old to new
-                                </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input me-1" type="checkbox" value="" id="flexCheckChecked" onChange={() => handleSort('desc')}
-                                checked={sortOrder === 'desc'} />
-                                <label class="form-check-label" for="flexCheckChecked">
-                                   new to old
-                                </label>
-                        </div>
 
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuOffset">
+                        <li className="dropdown-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleSort('asc')}
+                                    checked={sortOrder === 'asc'} />
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Old to New
+                                </label>
+                            </div>
+                        </li>
+                        <li className="dropdown-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" onChange={() => handleSort('desc')}
+                                    checked={sortOrder === 'desc'} />
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    New to Old
+                                </label>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -166,7 +170,7 @@ const Notespage = (props) => {
 
 
             </div>
-            <div className='d-flex justify-content-center mb-3'>
+            <div className='d-flex justify-content-center'>
 
                 <Link
                     to='/'
