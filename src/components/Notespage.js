@@ -125,7 +125,7 @@ const Notespage = (props) => {
 
             <div class="d-flex justify-content-end mt-2">
                 <div class="dropdown me-1">
-                    <button type="button" class="btn btn-dark dropdown-toggle" id="dropdownMenuOffset" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
+                    <button type="button" class="btn btn-dark dropdown-toggle" id="dropdownMenuOffset" data-bs-toggle="dropdown"  data-bs-auto-close="inside" aria-expanded="false" data-bs-offset="10,20">
                         <i class="fa-solid fa-filter"></i> filter
                     </button>
 
